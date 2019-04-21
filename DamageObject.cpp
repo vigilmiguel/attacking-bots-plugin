@@ -143,9 +143,9 @@ void DamageObject::onDamageObjectUpdate(std::vector<DamageObject>& objectList)
 void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectList)
 {
 	SendClientMessage(playerid, -1, "Damaged");
-	GetPVarInt
-	static AMX_NATIVE native = sampgdk::FindNative("CallRemoteFunction");
-	sampgdk::InvokeNative(native, "ifiii", playerid, float(damage), INVALID_PLAYER_ID, 21, 0);
+	//GetPVarInt
+	//static AMX_NATIVE native = sampgdk::FindNative("CallRemoteFunction");
+	//sampgdk::InvokeNative(native, "ifiii", playerid, float(damage), INVALID_PLAYER_ID, 21, 0);
 	//return sampgdk::InvokeNative(native, "iffffffiiiff", modelid,
 
 }

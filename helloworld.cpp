@@ -235,11 +235,17 @@ PLUGIN_EXPORT void PLUGIN_CALL ProcessTick() {
   sampgdk::ProcessTick();
 }
 
+static cell AMX_NATIVE_CALL OnSomethingHappens(AMX* amx, cell* params)
+{
+	SendClientMessageToAll(-1, "First native!");
+	return 1;
+}
+
 //An array of the functions we wish to register with the abstract machine.
 AMX_NATIVE_INFO PluginNatives[] =
 {
 	//Here we specify our native functions information and terminate the array with two null values.
-	{ "WC_DamagePlayer", WC_DamagePlayer},
+	{ "OnSomethingHappens", OnSomethingHappens},
 	{ 0, 0 }
 };
 
