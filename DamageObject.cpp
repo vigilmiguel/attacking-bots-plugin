@@ -2,7 +2,9 @@
 #include "AttackBot.h"
 #include "streamer.hpp"
 #include "sampgdk.h"
+#include "amx_var.h"
 
+int callWC_DamagePlayer(int playerid, float amount, int issuerid, int weaponid, int bodypart);
 
 DamageObject::DamageObject()
 {
@@ -140,9 +142,12 @@ void DamageObject::onDamageObjectUpdate(std::vector<DamageObject>& objectList)
 
 }
 
+// public WC_DamagePlayer(playerid, Float:amount, issuerid, weaponid, bodypart);
 void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectList)
 {
-	SendClientMessage(playerid, -1, "Damaged");
+	//SendClientMessage(playerid, -1, "Damaged");
+	
+	callWC_DamagePlayer(playerid, (float)damage, INVALID_PLAYER_ID, 21, 0);
 	//GetPVarInt
 	//static AMX_NATIVE native = sampgdk::FindNative("CallRemoteFunction");
 	//sampgdk::InvokeNative(native, "ifiii", playerid, float(damage), INVALID_PLAYER_ID, 21, 0);
@@ -155,3 +160,57 @@ void DamageObject::destroy(std::vector<DamageObject>& objectList)
 
 
 }
+
+
+int callWC_DamagePlayer(int playerid, float amount, int issuerid, int weaponid, int bodypart)
+{
+	std::string params = std::to_string(playerid) + " " + std::to_string(amount) + " " + std::to_string(issuerid) + " " + std::to_string(weaponid) + " " + std::to_string(bodypart);
+	SendClientMessageToAll(-1, params.c_str());
+	/*
+	SendClientMessageToAll(-1, "WC+Called.");
+	if (playerid == NULL && playerid != 0)
+		return 0;
+	SendClientMessageToAll(-1, "Valid playerid");
+	if (amount == NULL)
+		return 0;
+	SendClientMessageToAll(-1, "Valid damage");
+	if (issuerid == NULL)
+		return 0;
+	SendClientMessageToAll(-1, "Valid issuerid");
+	if (weaponid == NULL)
+		return 0;
+	SendClientMessageToAll(-1, "Valid weaponid");
+	if (bodypart == NULL)
+		return 0;
+	SendClientMessageToAll(-1, "Valid bodypart");
+	*/
+	int idx;
+	cell ret;
+	//cell amx_Address;
+	//cell* phys_addr;
+	SendClientMessageToAll(-1, "Calling....");
+
+	std::string mess = "Size: " + std::to_string(vAMX.size());
+
+	sampgdk::logprintf(mess.c_str());
+
+	int amxerr = amx_FindPublic(vAMX[LWLVDM_AMX], "WC_DamagePlayer", &idx);
+
+	if (amxerr == AMX_ERR_NONE)
+	{
+		SendClientMessageToAll(-1, "Success.");
+		amx_Push(vAMX[LWLVDM_AMX], bodypart);
+		amx_Push(vAMX[LWLVDM_AMX], weaponid);
+		amx_Push(vAMX[LWLVDM_AMX], issuerid);
+		amx_Push(vAMX[LWLVDM_AMX], amx_ftoc(amount));
+		amx_Push(vAMX[LWLVDM_AMX], playerid);
+		amx_Exec(vAMX[LWLVDM_AMX], &ret, idx);
+
+		return 1;
+	}
+
+	SendClientMessageToAll(-1, "Error.");
+
+	return 0;
+}
+

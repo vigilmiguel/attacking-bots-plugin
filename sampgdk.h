@@ -134,6 +134,7 @@
 #include "amx/amx.h"
 #include "plugincommon.h"
 
+
 #if defined __INTEL_COMPILER
   /* ... */
 #elif defined __clang_
@@ -141,6 +142,8 @@
 #elif defined __GNUC__
   #pragma GCC diagnostic pop
 #endif
+
+
 
 /**
  * \addtogroup sdk

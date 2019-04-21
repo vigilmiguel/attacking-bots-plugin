@@ -36,6 +36,9 @@
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\amx_var.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\CMakeLists.txt" />

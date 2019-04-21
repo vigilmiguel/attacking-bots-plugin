@@ -1,9 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-
-
 #include "sampgdk.h"
+#include "amx_var.h"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -13,21 +12,31 @@
 
 using namespace std;
 
+
+typedef void(*logprintf_t)(char* format, ...);
+logprintf_t logprintf;
+void **ppPluginData;
+extern void *pAMXFunctions;
+
+
 void onBotMoved(int botid);
 void onBotsUpdate();
 float processDamage(int weaponid);
 
+vector<AMX*> vAMX;
 vector<AttackBot> attackbots;
 
 
+/*
 void SAMPGDK_CALL PrintTickCountTimer(int timerid, void *params) {
 
-	//sampgdk::logprintf("Tick count: %d", GetTickCount());
+	sampgdk::logprintf("Tick count: %d", GetTickCount());
 }
-
+*/
 // Run every 50 milliseconds.
 void SAMPGDK_CALL ScriptSync(int timerid, void* params)
 {
+	//sampgdk::logprintf("ScriptSync()");
 	onBotsUpdate();
 
 	return;
@@ -37,10 +46,11 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeInit() {
 	SetGameModeText("Attacking Bot Test");
 	AddPlayerClass(0, 1958.3783f, 1343.1572f, 15.3746f, 269.1425f,
 					0, 0, 0, 0, 0, 0);
+	
 	//SetTimer(1000, true, PrintTickCountTimer, 0);
 	SetTimer(50, true, ScriptSync, 0);
 	
-	
+	sampgdk::logprintf("OnGameModeInit()");
 	
 	// Create the UFO
 	//CreateObject(18846, 4726.4478, 134.1717, 12.2423, 18.00000, 30.00000, 285.00000, 0.0);
@@ -219,42 +229,79 @@ void onBotMoved(int botid)
 	}
 }
 
-PLUGIN_EXPORT unsigned int PLUGIN_CALL Supports() {
-  return sampgdk::Supports() | SUPPORTS_PROCESS_TICK;
-}
 
-PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
-  return sampgdk::Load(ppData);
-}
 
-PLUGIN_EXPORT void PLUGIN_CALL Unload() {
-  sampgdk::Unload();
-}
-
-PLUGIN_EXPORT void PLUGIN_CALL ProcessTick() {
-  sampgdk::ProcessTick();
-}
 
 static cell AMX_NATIVE_CALL OnSomethingHappens(AMX* amx, cell* params)
 {
-	SendClientMessageToAll(-1, "First native!");
+	logprintf("First Plugin!!!!!!!!!");
 	return 1;
+}
+
+PLUGIN_EXPORT unsigned int PLUGIN_CALL Supports() {
+
+	return sampgdk::Supports() | SUPPORTS_VERSION | SUPPORTS_AMX_NATIVES | SUPPORTS_PROCESS_TICK;
+
+	//return sampgdk::Supports() | SUPPORTS_PROCESS_TICK;
+}
+
+PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
+	
+	pAMXFunctions = ppData[PLUGIN_DATA_AMX_EXPORTS];
+	logprintf = (logprintf_t)ppData[PLUGIN_DATA_LOGPRINTF];
+
+	logprintf(" * Test plugin was loaded.");
+	//return true;
+	
+	return sampgdk::Load(ppData);
+}
+
+PLUGIN_EXPORT void PLUGIN_CALL Unload() {
+
+	logprintf(" * Test plugin was unloaded.");
+
+	sampgdk::Unload();
 }
 
 //An array of the functions we wish to register with the abstract machine.
 AMX_NATIVE_INFO PluginNatives[] =
 {
 	//Here we specify our native functions information and terminate the array with two null values.
-	{ "OnSomethingHappens", OnSomethingHappens},
-	{ 0, 0 }
+	{ "OnSomethingHappens", OnSomethingHappens },
+	{0 , 0}
 };
 
 PLUGIN_EXPORT int PLUGIN_CALL AmxLoad(AMX *amx)
 {
+	//pAMX = amx;
+	sampgdk::logprintf("Inserting...");
+	vAMX.push_back(amx);
+
+	int size = vAMX.size();
+	string mess = "Size: " + to_string(vAMX.size());
+
+	sampgdk::logprintf(mess.c_str());
+
 	//Here we register our natives to the abstract machine. Note how we're using -1. Normally this would have to be the number of
 	//functions we're registering, but since we terminated the array with two null values, we can specify -1.  
 	return amx_Register(amx, PluginNatives, -1);
+	//return 1;
+	
 }
+
+PLUGIN_EXPORT int PLUGIN_CALL AmxUnload(AMX *amx)
+{
+	return AMX_ERR_NONE;
+}
+
+PLUGIN_EXPORT void PLUGIN_CALL ProcessTick() {
+  sampgdk::ProcessTick();
+}
+
+
+
+
+
 
 float processDamage(int weaponid)
 {

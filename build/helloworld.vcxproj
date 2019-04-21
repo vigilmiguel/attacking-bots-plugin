@@ -318,6 +318,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amxplugin.cpp" />
+    <ClInclude Include="..\amx_var.h" />
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\AttackBot.h" />
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\Attacking.cpp" />
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.h" />
