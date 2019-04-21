@@ -17,6 +17,7 @@ add_samp_plugin(helloworld
   amxplugin.cpp
   AttackBot.h
   Attacking.cpp
+  amx_var.h
   DamageObject.h
   DamageObject.cpp
   helloworld.cpp
@@ -26,5 +27,6 @@ add_samp_plugin(helloworld
   streamer.hpp
   streamer.cpp
   callbacks.cpp
+  tick.h
 )
 

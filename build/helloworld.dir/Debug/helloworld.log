@@ -1,3 +1,13 @@
-﻿  DamageObject.cpp
-C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.cpp(55): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  Building Custom Rule C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/CMakeLists.txt
+  CMake does not need to re-run because C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/generate.stamp is up-to-date.
+  amxplugin.cpp
+  Attacking.cpp
+  DamageObject.cpp
+C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.cpp(59): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  helloworld.cpp
+  streamer.cpp
+  callbacks.cpp
+  Generating Code...
+  sampgdk.c
+     Creating library C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/Debug/helloworld.lib and object C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/Debug/helloworld.exp
   helloworld.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\Debug\helloworld.dll

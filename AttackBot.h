@@ -3,18 +3,19 @@
 
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>
-#include <chrono>
+
 #include <vector>
 #include <string>
 
 #include "sampgdk.h"
+#include "tick.h"
 
 class DamageObject;
 
-using namespace std::chrono;
+
 
 const float SPAWN_DEPTH = 5.0;
-const int MAX_HEALTH = 1000;
+const int MAX_HEALTH = 250;
 
 struct Area
 {
@@ -48,8 +49,8 @@ private:
 	Area area;
 	bool isMoving = false;
 	long long startMoveTime = 0;
-	int moveWait = 1000;
-	int speed = 4;
+	int moveWait = 1500;
+	int speed = 10;
 	int health;
 	int targetid;
 	std::vector<DamageObject> projectiles;

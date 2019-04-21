@@ -11,7 +11,7 @@ DamageObject::DamageObject()
 	
 }
 
-DamageObject::DamageObject(AttackBot bot, int damage, int duration, int durability, float range)
+DamageObject::DamageObject(AttackBot bot, float damage, int duration, int durability, float range)
 {
 	isAttackBot = true;
 
@@ -20,21 +20,22 @@ DamageObject::DamageObject(AttackBot bot, int damage, int duration, int durabili
 	this->duration = duration;
 	this->durability = durability;
 	this->range = range;
+	createTime = getCurrentTick();
 
 }
 
-DamageObject::DamageObject(int modelid, Position spawn, Position end, int damage, int duration, int durability, float range)
+DamageObject::DamageObject(int modelid, Position spawn, Position end, float damage, int duration, int durability, float range)
 {
 	float rotX = calculateXRotation(spawn, end);
 	float rotY = 0.0;
 	float rotZ = calculateZRotation(spawn, end);
 
-	std::string message = "rotX: " + std::to_string(rotX) + " | rotY: " + std::to_string(rotY) + " | rotZ: " + std::to_string(rotZ);
-	int size = message.length();
+	//std::string message = "rotX: " + std::to_string(rotX) + " | rotY: " + std::to_string(rotY) + " | rotZ: " + std::to_string(rotZ);
+	//int size = message.length();
 
-	SendClientMessageToAll(-1, std::to_string(size).c_str());
+	//SendClientMessageToAll(-1, std::to_string(size).c_str());
 
-	SendClientMessageToAll(-1, message.c_str());
+	//SendClientMessageToAll(-1, message.c_str());
 
 	// 18647
 	objectid = Plugins::Streamer::Object::Create(modelid, spawn.x, spawn.y, spawn.z, rotX, rotY, rotZ, 0, 0, -1, 300.0, 0.0, -1, 0);
@@ -43,6 +44,9 @@ DamageObject::DamageObject(int modelid, Position spawn, Position end, int damage
 	this->duration = duration;
 	this->durability = durability;
 	this->range = range;
+	createTime = getCurrentTick();
+
+	Plugins::Streamer::Object::Move(objectid, end.x, end.y, end.z, float(155.0), rotX, rotY, rotZ);
 }
 
 float DamageObject::calculateXRotation(Position start, Position end)
@@ -130,6 +134,7 @@ void DamageObject::onDamageObjectUpdate(std::vector<DamageObject>& objectList)
 	//std::string message = "laser (x, y, z) = (" + std::to_string(objectPos.x) + ", " + std::to_string(objectPos.y) + ", " + std::to_string(objectPos.z);
 	//SendClientMessageToAll(-1, message.c_str());
 
+	// Find players within their range to damage them.
 	for (int i = 0; i < MAX_PLAYERS; i++)
 	{
 		if (!IsPlayerConnected(i))
@@ -140,6 +145,15 @@ void DamageObject::onDamageObjectUpdate(std::vector<DamageObject>& objectList)
 			damagePlayer(i, objectList);
 	}
 
+	// If this object has been around for longer than its duration...
+	if (getCurrentTick() - createTime > duration)
+	{
+		// Destroy the object...
+		destroy(objectList);
+	}
+
+	return;
+
 }
 
 // public WC_DamagePlayer(playerid, Float:amount, issuerid, weaponid, bodypart);
@@ -148,24 +162,45 @@ void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectL
 	//SendClientMessage(playerid, -1, "Damaged");
 	
 	callWC_DamagePlayer(playerid, (float)damage, INVALID_PLAYER_ID, 21, 0);
-	//GetPVarInt
-	//static AMX_NATIVE native = sampgdk::FindNative("CallRemoteFunction");
-	//sampgdk::InvokeNative(native, "ifiii", playerid, float(damage), INVALID_PLAYER_ID, 21, 0);
-	//return sampgdk::InvokeNative(native, "iffffffiiiff", modelid,
+	durability--;
+
+	// If the object's durability has depleated...
+	if (durability == 0)
+		// Destroy the object..
+		destroy(objectList);
+
+	return;
 
 }
 
 void DamageObject::destroy(std::vector<DamageObject>& objectList)
 {
+	DamageObject temp;
 
+	for (size_t i = 0; i < objectList.size(); i++)
+	{
+		if (objectList[i].objectid == objectid)
+		{
+			Plugins::Streamer::Object::Destroy(objectid);
 
+			temp = objectList[i];
+			objectList[i] = objectList[objectList.size() - 1];
+			objectList[objectList.size() - 1] = temp;
+
+			objectList.pop_back();
+
+			break;
+		}
+	}
+
+	return;
 }
 
 
 int callWC_DamagePlayer(int playerid, float amount, int issuerid, int weaponid, int bodypart)
 {
-	std::string params = std::to_string(playerid) + " " + std::to_string(amount) + " " + std::to_string(issuerid) + " " + std::to_string(weaponid) + " " + std::to_string(bodypart);
-	SendClientMessageToAll(-1, params.c_str());
+	//std::string params = std::to_string(playerid) + " " + std::to_string(amount) + " " + std::to_string(issuerid) + " " + std::to_string(weaponid) + " " + std::to_string(bodypart);
+	//SendClientMessageToAll(-1, params.c_str());
 	/*
 	SendClientMessageToAll(-1, "WC+Called.");
 	if (playerid == NULL && playerid != 0)
@@ -188,17 +223,17 @@ int callWC_DamagePlayer(int playerid, float amount, int issuerid, int weaponid, 
 	cell ret;
 	//cell amx_Address;
 	//cell* phys_addr;
-	SendClientMessageToAll(-1, "Calling....");
+	//SendClientMessageToAll(-1, "Calling....");
 
-	std::string mess = "Size: " + std::to_string(vAMX.size());
+	//std::string mess = "Size: " + std::to_string(vAMX.size());
 
-	sampgdk::logprintf(mess.c_str());
+	//sampgdk::logprintf(mess.c_str());
 
 	int amxerr = amx_FindPublic(vAMX[LWLVDM_AMX], "WC_DamagePlayer", &idx);
 
 	if (amxerr == AMX_ERR_NONE)
 	{
-		SendClientMessageToAll(-1, "Success.");
+		//SendClientMessageToAll(-1, "Success.");
 		amx_Push(vAMX[LWLVDM_AMX], bodypart);
 		amx_Push(vAMX[LWLVDM_AMX], weaponid);
 		amx_Push(vAMX[LWLVDM_AMX], issuerid);
@@ -209,8 +244,9 @@ int callWC_DamagePlayer(int playerid, float amount, int issuerid, int weaponid, 
 		return 1;
 	}
 
-	SendClientMessageToAll(-1, "Error.");
+	//SendClientMessageToAll(-1, "Error.");
 
 	return 0;
 }
+
 

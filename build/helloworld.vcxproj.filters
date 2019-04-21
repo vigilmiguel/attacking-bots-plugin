@@ -27,6 +27,9 @@
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\AttackBot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amx_var.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -36,7 +39,7 @@
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\amx_var.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\tick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

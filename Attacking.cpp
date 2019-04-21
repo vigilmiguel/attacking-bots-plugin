@@ -3,7 +3,7 @@
 
 
 
-long long getCurrentTick();
+
 
 
 
@@ -74,6 +74,12 @@ void AttackBot::destroy(std::vector<AttackBot>& botList)
 {
 	AttackBot temp;
 
+	// On bot death, destroy its lasers.
+	while(projectiles.size() > 0)
+	{
+		projectiles[0].destroy(projectiles);
+	}
+
 	for (size_t i = 0; i < botList.size(); i++)
 	{
 		if (botList[i].botid == botid)
@@ -89,6 +95,7 @@ void AttackBot::destroy(std::vector<AttackBot>& botList)
 			break;
 		}
 	}
+
 }
 
 Position AttackBot::randomPosInArea()
@@ -162,8 +169,8 @@ bool AttackBot::isPlayerInArea(int playerid)
 	
 	GetPlayerPos(playerid, &pos.x, &pos.y, &pos.z);
 
-	std::string message = "(x, y, z) => (" + std::to_string(pos.x) + ", " + std::to_string(pos.y) + ", " + std::to_string(pos.z) + ")";
-	SendClientMessage(playerid, -1, message.c_str());
+	//std::string message = "(x, y, z) => (" + std::to_string(pos.x) + ", " + std::to_string(pos.y) + ", " + std::to_string(pos.z) + ")";
+	//SendClientMessage(playerid, -1, message.c_str());
 
 	if (pos.x >= area.xMin && pos.x <= area.xMax &&
 		pos.y >= area.yMin && pos.y <= area.yMax &&
@@ -193,7 +200,7 @@ void AttackBot::attackTarget()
 
 	GetPlayerPos(targetid, &end.x, &end.y, &end.z);
 
-	DamageObject laser(18647, start, end, 20, 3000, 1, float(10.0));
+	DamageObject laser(18647, start, end, float(5.0), 3000, 1, float(1.5));
 
 	projectiles.push_back(laser);
 
@@ -208,10 +215,10 @@ std::vector<int> AttackBot::scanArea()
 	{
 		if (!IsPlayerConnected(i))
 			continue;
-		SendClientMessageToAll(-1, "Player online");
+		//SendClientMessageToAll(-1, "Player online");
 		if (isPlayerInArea(i))
 		{
-			SendClientMessageToAll(-1, "Player found");
+			//SendClientMessageToAll(-1, "Player found");
 			playersInArea.push_back(i);
 		}
 	}
@@ -226,7 +233,8 @@ void AttackBot::selectRandomTarget()
 
 	playerList = scanArea();
 
-	SendClientMessageToAll(-1, std::to_string(playerList.size()).c_str());
+
+	//SendClientMessageToAll(-1, std::to_string(playerList.size()).c_str());
 
 	if (playerList.size() != 0)
 	{
@@ -243,10 +251,3 @@ void AttackBot::selectRandomTarget()
 }
 
 
-long long getCurrentTick()
-{
-	milliseconds time = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
-
-
-	return time.count();
-}

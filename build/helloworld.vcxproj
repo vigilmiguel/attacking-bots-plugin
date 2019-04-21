@@ -318,9 +318,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amxplugin.cpp" />
-    <ClInclude Include="..\amx_var.h" />
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\AttackBot.h" />
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\Attacking.cpp" />
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amx_var.h" />
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.h" />
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.cpp" />
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\helloworld.cpp" />
@@ -335,6 +335,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.hpp" />
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.cpp" />
     <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\callbacks.cpp" />
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\tick.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\ZERO_CHECK.vcxproj">
