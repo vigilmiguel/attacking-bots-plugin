@@ -1,0 +1,3 @@
+﻿  DamageObject.cpp
+C:\Users\vigil\Desktop\Servers\samp-cpp\DamageObject.cpp(53): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  helloworld.vcxproj -> C:\Users\vigil\Desktop\Servers\samp-cpp\build\Debug\helloworld.dll
