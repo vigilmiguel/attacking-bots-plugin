@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\vigil\Desktop\Servers\samp-cpp\build\CMakeFiles\a20706cf0d5e7e4f4cea90187459e5dd\generate.stamp.rule">
+    <CustomBuild Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\674f67b5dd99566ff949e02fe068d2ad\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{E56BADBB-C106-360B-85B5-36EC8C7AFCF3}</UniqueIdentifier>
+      <UniqueIdentifier>{B27EE41D-E2E9-336D-AAB5-317E009E78DD}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

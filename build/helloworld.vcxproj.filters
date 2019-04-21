@@ -1,56 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\amxplugin.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amxplugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\Attacking.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\Attacking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\DamageObject.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\helloworld.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\helloworld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\sampgdk.c">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\sampgdk.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\streamer.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\samp-cpp\callbacks.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\callbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\samp-cpp\AttackBot.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\AttackBot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\samp-cpp\DamageObject.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\samp-cpp\sampgdk.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\sampgdk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\samp-cpp\streamer.hpp">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\vigil\Desktop\Servers\samp-cpp\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\vigil\Desktop\Servers\samp-cpp\helloworld.def">
+    <None Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\helloworld.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{41975501-F9F5-3678-A5B0-136FED2B7687}</UniqueIdentifier>
+      <UniqueIdentifier>{2C823E94-857B-358B-9EFE-92EC0BD11DDA}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{CBE5E2AD-310B-3A01-923A-4A857970B1AF}</UniqueIdentifier>
+      <UniqueIdentifier>{495EC2B8-E3D4-34E7-983E-7512D81C1200}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

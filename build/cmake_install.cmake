@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/vigil/Desktop/Servers/samp-cpp
+# Install script for directory: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/vigil/Desktop/Servers/samp-cpp/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
