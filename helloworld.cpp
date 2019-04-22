@@ -273,6 +273,7 @@ AMX_NATIVE_INFO PluginNatives[] =
 
 PLUGIN_EXPORT int PLUGIN_CALL AmxLoad(AMX *amx)
 {
+	
 	//pAMX = amx;
 	sampgdk::logprintf("Inserting...");
 	vAMX.push_back(amx);

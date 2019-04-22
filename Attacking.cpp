@@ -15,7 +15,7 @@ AttackBot::AttackBot()
 
 AttackBot::AttackBot(int modelid, Area area)
 {
-	srand(unsigned int(time(NULL)));
+	srand((unsigned int)time(NULL));
 
 	this->modelid = modelid;
 	this->area = area;
