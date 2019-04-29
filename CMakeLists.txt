@@ -26,7 +26,7 @@ set(HEADERS
 
 set(SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/amxplugin.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/Attacking.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/AttackBot.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/callbacks.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/DamageObject.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/helloworld.cpp
