@@ -1,10 +1,3 @@
-﻿  Attacking.cpp
-  DamageObject.cpp
-C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.cpp(59): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  amxplugin.cpp
-  callbacks.cpp
-  helloworld.cpp
-  streamer.cpp
-  Generating Code...
-  sampgdk.c
+﻿  helloworld.cpp
+     Creating library C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/Debug/helloworld.lib and object C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/Debug/helloworld.exp
   helloworld.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\Debug\helloworld.dll

@@ -1,7 +1,7 @@
 The system is: Windows - 10.0.17134 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler:  
-Build flags: 
+Build flags: /DWIN32;/D_WINDOWS;/W3
 Id flags:  
 
 The output was:
@@ -9,7 +9,7 @@ The output was:
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 4/21/2019 5:22:32 AM.
+Build started 4/29/2019 2:06:45 AM.
 Project "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\3.14.0\CompilerIdC\CompilerIdC.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -35,7 +35,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.44
+Time Elapsed 00:00:01.11
 
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
@@ -46,7 +46,7 @@ The C compiler identification is MSVC, found in "C:/Users/vigil/Desktop/Servers/
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler:  
-Build flags: 
+Build flags: /DWIN32;/D_WINDOWS;/W3;/GR;/EHsc
 Id flags:  
 
 The output was:
@@ -54,7 +54,7 @@ The output was:
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-Build started 4/21/2019 5:22:34 AM.
+Build started 4/29/2019 2:06:46 AM.
 Project "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\3.14.0\CompilerIdCXX\CompilerIdCXX.vcxproj" on node 1 (default targets).
 PrepareForBuild:
   Creating directory "Debug\".
@@ -80,7 +80,7 @@ Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:01.10
+Time Elapsed 00:00:00.93
 
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
@@ -92,33 +92,33 @@ The CXX compiler identification is MSVC, found in "C:/Users/vigil/Desktop/Server
 Determining if the C compiler works passed with the following output:
 Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_eda4a.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_bb1fe.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_eda4a.dir\Debug\\" /Fd"cmTC_eda4a.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\testCCompiler.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bb1fe.dir\Debug\\" /Fd"cmTC_bb1fe.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\testCCompiler.c"
   testCCompiler.c
   
-  cmTC_eda4a.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_eda4a.exe
+  cmTC_bb1fe.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_bb1fe.exe
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_8cac7.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_08945.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8cac7.dir\Debug\\" /Fd"cmTC_8cac7.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\cmake-3.14.0-win64-x64\share\cmake-3.14\Modules\CMakeCCompilerABI.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_08945.dir\Debug\\" /Fd"cmTC_08945.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Program Files\CMake\cmake-3.14.0-win64-x64\share\cmake-3.14\Modules\CMakeCCompilerABI.c"
   CMakeCCompilerABI.c
   
-  cmTC_8cac7.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_8cac7.exe
+  cmTC_08945.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_08945.exe
 
 
 
@@ -126,17 +126,17 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Detecting C [] compiler features compiled with the following output:
 Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_5f23c.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_aeefc.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_5f23c.dir\Debug\\" /Fd"cmTC_5f23c.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\feature_tests.c"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_aeefc.dir\Debug\\" /Fd"cmTC_aeefc.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\feature_tests.c"
   feature_tests.c
   
-  cmTC_5f23c.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_5f23c.exe
+  cmTC_aeefc.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_aeefc.exe
 
 
     Feature record: C_FEATURE:1c_function_prototypes
@@ -144,33 +144,33 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Determining if the CXX compiler works passed with the following output:
 Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_96cf6.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_5043b.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_96cf6.dir\Debug\\" /Fd"cmTC_96cf6.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_5043b.dir\Debug\\" /Fd"cmTC_5043b.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\testCXXCompiler.cxx"
   testCXXCompiler.cxx
   
-  cmTC_96cf6.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_96cf6.exe
+  cmTC_5043b.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_5043b.exe
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_48df9.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_e55c8.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_48df9.dir\Debug\\" /Fd"cmTC_48df9.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\cmake-3.14.0-win64-x64\share\cmake-3.14\Modules\CMakeCXXCompilerABI.cpp"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_e55c8.dir\Debug\\" /Fd"cmTC_e55c8.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Program Files\CMake\cmake-3.14.0-win64-x64\share\cmake-3.14\Modules\CMakeCXXCompilerABI.cpp"
   CMakeCXXCompilerABI.cpp
   
-  cmTC_48df9.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_48df9.exe
+  cmTC_e55c8.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_e55c8.exe
 
 
 
@@ -178,17 +178,17 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 Detecting CXX [] compiler features compiled with the following output:
 Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_79748.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
+Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_6cad1.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
 Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
   Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
   Copyright (C) Microsoft Corporation.  All rights reserved.
   
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_79748.dir\Debug\\" /Fd"cmTC_79748.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\feature_tests.cxx"
+  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /GR /Fo"cmTC_6cad1.dir\Debug\\" /Fd"cmTC_6cad1.dir\Debug\vc141.pdb" /Gd /TP /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\feature_tests.cxx"
   feature_tests.cxx
   
-  cmTC_79748.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_79748.exe
+  cmTC_6cad1.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_6cad1.exe
 
 
     Feature record: CXX_FEATURE:1cxx_aggregate_default_initializers
@@ -247,51 +247,3 @@ Copyright (C) Microsoft Corporation. All rights reserved.
     Feature record: CXX_FEATURE:1cxx_variable_templates
     Feature record: CXX_FEATURE:1cxx_variadic_macros
     Feature record: CXX_FEATURE:1cxx_variadic_templates
-Determining if the include file inttypes.h exists passed with the following output:
-Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_7d3f6.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
-Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7d3f6.dir\Debug\\" /Fd"cmTC_7d3f6.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-  cmTC_7d3f6.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_7d3f6.exe
-
-
-Determining if the include file malloc.h exists passed with the following output:
-Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_22639.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
-Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_22639.dir\Debug\\" /Fd"cmTC_22639.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-  cmTC_22639.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_22639.exe
-
-
-Determining if the include file stdint.h exists passed with the following output:
-Change Dir: C:/Users/vigil/Desktop/Servers/attacking-bots-plugin/build/CMakeFiles/CMakeTmp
-
-Run Build Command(s):C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/MSBuild/15.0/Bin/MSBuild.exe cmTC_8b4b1.vcxproj /p:Configuration=Debug /p:Platform=Win32 /p:VisualStudioVersion=15.0 /v:m 
-Microsoft (R) Build Engine version 15.5.180.51428 for .NET Framework
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-  Microsoft (R) C/C++ Optimizing Compiler Version 19.12.25835 for x86
-  Copyright (C) Microsoft Corporation.  All rights reserved.
-  
-  cl /c /Zi /W3 /WX- /diagnostics:classic /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_8b4b1.dir\Debug\\" /Fd"cmTC_8b4b1.dir\Debug\vc141.pdb" /Gd /TC /analyze- /errorReport:queue "C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\CheckIncludeFile.c"
-  CheckIncludeFile.c
-  
-  cmTC_8b4b1.vcxproj -> C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\build\CMakeFiles\CMakeTmp\Debug\cmTC_8b4b1.exe
-
-

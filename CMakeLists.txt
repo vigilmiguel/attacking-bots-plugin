@@ -9,24 +9,37 @@ include(AddSAMPPlugin)
 include_directories(
   ${CMAKE_CURRENT_SOURCE_DIR}
   ${CMAKE_CURRENT_SOURCE_DIR}/amx
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources
+)
+
+set(HEADERS 
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/amx_var.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/AttackBot.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/DamageObject.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/plugin.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/plugincommon.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/sampgdk.h
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/streamer.hpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Headers/tick.h
+)
+
+set(SOURCES
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/amxplugin.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/Attacking.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/callbacks.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/DamageObject.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/helloworld.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/helloworld.def
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/sampgdk.c
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/streamer.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/src/Sources/streamer.def
 )
 
 add_definitions(-DSAMPGDK_AMALGAMATION)
 
 add_samp_plugin(helloworld
-  amxplugin.cpp
-  AttackBot.h
-  Attacking.cpp
-  amx_var.h
-  DamageObject.h
-  DamageObject.cpp
-  helloworld.cpp
-  helloworld.def
-  sampgdk.c
-  sampgdk.h
-  streamer.hpp
-  streamer.cpp
-  callbacks.cpp
-  tick.h
+  ${HEADERS}
+  ${SOURCES}
 )
 

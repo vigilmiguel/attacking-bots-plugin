@@ -1,45 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amxplugin.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\amxplugin.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\Attacking.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\Attacking.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\callbacks.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\helloworld.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\DamageObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\sampgdk.c">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\helloworld.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\sampgdk.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\callbacks.cpp">
+    <ClCompile Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\streamer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\AttackBot.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\amx_var.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\amx_var.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\AttackBot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\DamageObject.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\DamageObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\sampgdk.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\plugin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\streamer.hpp">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\plugincommon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\tick.h">
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\sampgdk.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\streamer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Headers\tick.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +53,10 @@
     <CustomBuild Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\helloworld.def">
+    <None Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\helloworld.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="C:\Users\vigil\Desktop\Servers\attacking-bots-plugin\src\Sources\streamer.def">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
