@@ -23,9 +23,11 @@ extern void *pAMXFunctions;
 void onBotMoved(int botid);
 void onBotsUpdate();
 float processDamage(int weaponid);
+bool playerInArea(int playerid, Area area);
 
 vector<AMX*> vAMX;
 vector<AttackBot> attackbots;
+vector<Area> areas;
 
 
 /*
@@ -95,20 +97,83 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
     return true;
   }
 
-  if (strcmp(cmdtext, "/create") == 0)
+  if (strncmp(cmdtext, "/createarea", 11) == 0)
   {
 	  Area area;
+
+
+	  if (sscanf_s(cmdtext, "%*s %f %f %f %f %f %f", &area.xMin, &area.xMax, &area.yMin, &area.yMax, &area.zMin, &area.zMax) < 6)
+	  {
+		  SendClientMessage(playerid, 0xFF0000FF, "USAGE: /createarea [xMin xMax yMin yMax zMin zMax]");
+
+		  return true;
+	  }
+
+
+
+
+	  //string message = "X: " + to_string(area.xMin) + "| Y: " + to_string(area.yMin) + "| Z: " + to_string(area.zMin);
+
+	  //SendClientMessage(playerid, -1, message.c_str());
+
+	  areas.push_back(area);
+
+
+	  return true;
+  }
+
+  if (strcmp(cmdtext, "/pos") == 0)
+  {
+	  float x, y, z;
+
+	  GetPlayerPos(playerid, &x, &y, &z);
+
+	  string message = "X: " + to_string(x) + "| Y: " + to_string(y) + "| Z: " + to_string(z);
+
+	  SendClientMessage(playerid, -1, message.c_str());
+
+
+	  return true;
+  }
+
+  if (strcmp(cmdtext, "/create") == 0)
+  {
+
+
+	  /*
 	  area.xMin = float(4720.3354);
 	  area.xMax = float(4766.1201);
 	  area.yMin = float(134.1717);
 	  area.yMax = float(231.4489);
 	  area.zMin = float(11.2423);
 	  area.zMax = float(22.2423);
+	  */
+
+	  bool isInArea = false;
+	  Area area;
+
+	  for (size_t i = 0; i < areas.size(); i++)
+	  {
+		  area = areas[i];
+
+		  if (playerInArea(playerid, area))
+		  {
+			  isInArea = true;
+			  break;
+		  }
+	  }
+
+	  if (!isInArea)
+	  {
+		  SendClientMessage(playerid, 0xFF0000FF, "ERROR: You aren't in a valid area!");
+		  return true;
+	  }
+
 
 	  AttackBot bot(18846, area);
 
 	  attackbots.push_back(bot);
-	
+
 	  string botidList = "Bot List: ";
 	  for (size_t i = 0; i < attackbots.size(); i++)
 	  {
@@ -301,7 +366,23 @@ PLUGIN_EXPORT void PLUGIN_CALL ProcessTick() {
 }
 
 
+bool playerInArea(int playerid, Area area)
+{
+	Position pos;
 
+
+	GetPlayerPos(playerid, &pos.x, &pos.y, &pos.z);
+
+	std::string message = "(x, y, z) => (" + std::to_string(pos.x) + ", " + std::to_string(pos.y) + ", " + std::to_string(pos.z) + ")";
+	SendClientMessage(playerid, -1, message.c_str());
+
+	if (pos.x >= area.xMin && pos.x <= area.xMax &&
+		pos.y >= area.yMin && pos.y <= area.yMax &&
+		pos.z >= area.zMin && pos.z <= area.zMax)
+		return true;
+	else
+		return false;
+}
 
 
 

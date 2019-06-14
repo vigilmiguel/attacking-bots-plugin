@@ -80,6 +80,12 @@ void AttackBot::destroy(std::vector<AttackBot>& botList)
 		projectiles[0].destroy(projectiles);
 	}
 
+	DestroyObject(botid);
+	isDead = true;
+	isMoving = false;
+	deathTime = getCurrentTick();
+
+	/*
 	for (size_t i = 0; i < botList.size(); i++)
 	{
 		if (botList[i].botid == botid)
@@ -95,6 +101,7 @@ void AttackBot::destroy(std::vector<AttackBot>& botList)
 			break;
 		}
 	}
+	*/
 
 }
 
@@ -123,6 +130,24 @@ void AttackBot::OnUpdate()
 	if (isMoving && !IsObjectMoving(botid))
 		OnMoved();
 	*/ 
+
+	if (isDead)
+	{
+		//SendClientMessageToAll(-1, "Dead");
+		// If the bot has been dead for deathWait
+		if (getCurrentTick() - deathTime > deathWait)
+		{
+			//SendClientMessageToAll(-1, "REVIVED");
+			// Revive!!!
+			Position randPos = randomPosInArea();
+
+			this->botid = CreateObject(modelid, randPos.x, randPos.y, randPos.z - SPAWN_DEPTH, float(0.0), float(0.0), float(0.0), float(0.0));
+			isDead = false;
+			health = MAX_HEALTH;
+		}
+		else
+			return;
+	}
 
 	for (size_t i = 0; i < projectiles.size(); i++)
 	{

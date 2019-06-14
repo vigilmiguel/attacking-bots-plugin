@@ -48,6 +48,9 @@ private:
 	int modelid;
 	Area area;
 	bool isMoving = false;
+	bool isDead = false;
+	long long deathTime = 0;
+	int deathWait = 12000;
 	long long startMoveTime = 0;
 	int moveWait = 1500;
 	int speed = 10;

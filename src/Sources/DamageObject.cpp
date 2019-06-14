@@ -30,6 +30,8 @@ DamageObject::DamageObject(int modelid, Position spawn, Position end, float dama
 	float rotY = 0.0;
 	float rotZ = calculateZRotation(spawn, end);
 
+	float speed = 155.0;
+
 	//std::string message = "rotX: " + std::to_string(rotX) + " | rotY: " + std::to_string(rotY) + " | rotZ: " + std::to_string(rotZ);
 	//int size = message.length();
 
@@ -37,6 +39,13 @@ DamageObject::DamageObject(int modelid, Position spawn, Position end, float dama
 
 	//SendClientMessageToAll(-1, message.c_str());
 
+	if (abs(rotX) > 16.00)
+	{
+		modelid = 18728;
+		speed = 10.0;
+		durability = 3;
+		duration = 10000;
+	}
 	// 18647
 	objectid = Plugins::Streamer::Object::Create(modelid, spawn.x, spawn.y, spawn.z, rotX, rotY, rotZ, 0, 0, -1, 300.0, 0.0, -1, 0);
 	//objectid = CreateObject(modelid, spawn.x, spawn.y, spawn.z, rotX, rotY, rotZ, float(0.0));
@@ -46,7 +55,7 @@ DamageObject::DamageObject(int modelid, Position spawn, Position end, float dama
 	this->range = range;
 	createTime = getCurrentTick();
 
-	Plugins::Streamer::Object::Move(objectid, end.x, end.y, end.z, float(155.0), rotX, rotY, rotZ);
+	Plugins::Streamer::Object::Move(objectid, end.x, end.y, end.z, speed, rotX, rotY, rotZ);
 }
 
 float DamageObject::calculateXRotation(Position start, Position end)
@@ -161,7 +170,13 @@ void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectL
 {
 	//SendClientMessage(playerid, -1, "Damaged");
 	
-	callWC_DamagePlayer(playerid, (float)damage, INVALID_PLAYER_ID, 21, 0);
+	//callWC_DamagePlayer(playerid, (float)damage, INVALID_PLAYER_ID, 21, 0);
+	float health;
+
+	GetPlayerHealth(playerid, &health);
+
+	SetPlayerHealth(playerid, health - (float)damage);
+
 	durability--;
 
 	// If the object's durability has depleated...
