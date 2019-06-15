@@ -14,7 +14,7 @@ class DamageObject;
 
 
 
-const float SPAWN_DEPTH = 5.0;
+const float SPAWN_DEPTH = 15.0;
 const int MAX_HEALTH = 250;
 
 struct Area

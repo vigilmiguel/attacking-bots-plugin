@@ -64,9 +64,9 @@ void AttackBot::damage(int playerid, float damage, std::vector<AttackBot>& botLi
 
 	if (health <= 0)
 	{
-		message = "Destroyed Bot: " + std::to_string(botid);
+		//message = "Destroyed Bot: " + std::to_string(botid);
 		
-		SendClientMessage(playerid, -1, message.c_str());
+		//SendClientMessage(playerid, -1, message.c_str());
 
 		// Remove this object from the vector.
 		destroy(botList);
