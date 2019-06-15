@@ -4,12 +4,13 @@
 */
 
 #include "streamer.hpp"
-
+/*
 bool OnDynamicObjectMoved( int objectid )
 {
 	// your plugin's code
 	return 1;
 }
+*/
 
 bool OnPlayerEditDynamicObject( int playerid, int objectid, int response, float x, float y, float z, float rx, float ry, float rz )
 {
@@ -23,11 +24,13 @@ bool OnPlayerSelectDynamicObject( int playerid, int objectid, int modelid, float
 	return 1;
 }
 
+/*
 bool OnPlayerShootDynamicObject( int playerid, int weaponid, int objectid, float x, float y, float z )
 {
 	// your plugin's code
 	return 1;
 }
+*/
 
 bool OnPlayerPickUpDynamicPickup( int playerid, int pickupid )
 {

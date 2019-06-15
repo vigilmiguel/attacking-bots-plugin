@@ -56,10 +56,6 @@ void AttackBot::moveInArea()
 	//sampgdk::logprintf("Bot ID: %d started moving. to %f %f %f", botid, newpos.x, newpos.y, newpos.z);
 }
 
-bool AttackBot::isBotMoving()
-{
-	return Plugins::Streamer::Object::IsMoving(botid);
-}
 
 void AttackBot::damage(int playerid, float damage, std::vector<AttackBot>& botList)
 {
@@ -167,9 +163,11 @@ void AttackBot::OnUpdate()
 	{
 		projectiles[i].onDamageObjectUpdate(projectiles);
 	}
-
-	if (!isBotMoving())
+	
+	if (!isMoving)
 	{
+		
+
 		if (getCurrentTick() - startMoveTime > moveWait)
 		{
 			moveInArea();
@@ -178,8 +176,6 @@ void AttackBot::OnUpdate()
 
 			attackTarget();
 		}
-
-		
 	}
 
 	

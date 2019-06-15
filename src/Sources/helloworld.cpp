@@ -11,6 +11,8 @@
 #include "AttackBot.h"
 #include "DamageObject.h"
 
+#include "streamer.hpp"
+
 
 using namespace std;
 
@@ -273,6 +275,21 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerDeath(int playerid, int killerid, int rea
 	return true;
 }
 
+bool OnPlayerShootDynamicObject(int playerid, int weaponid, int objectid, float x, float y, float z)
+{
+	int botid = objectid;
+
+	for (size_t i = 0; i < attackbots.size(); i++)
+	{
+		if (attackbots[i].getBotID() == botid)
+		{
+			attackbots[i].damage(playerid, processDamage(weaponid), attackbots);
+		}
+	}
+	return true;
+}
+
+/*
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerWeaponShot(int playerid, int weaponid, int hittype, int hitid, float fX, float fY, float fZ)
 {
 	if (hittype == BULLET_HIT_TYPE_OBJECT)
@@ -292,6 +309,14 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerWeaponShot(int playerid, int weaponid, in
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnObjectMoved(int objectid)
+{
+	//sampgdk::logprintf("OnObjecTMoved");
+	onBotMoved(objectid);
+	return true;
+}
+*/
+
+bool OnDynamicObjectMoved(int objectid)
 {
 	//sampgdk::logprintf("OnObjecTMoved");
 	onBotMoved(objectid);

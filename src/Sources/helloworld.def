@@ -10,5 +10,3 @@ EXPORTS
 	OnPlayerConnect
 	OnPlayerRequestClass
 	OnPlayerCommandText
-	OnObjectMoved
-	OnPlayerWeaponShot
