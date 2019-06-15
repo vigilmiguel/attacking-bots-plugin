@@ -177,7 +177,9 @@ void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectL
 	GetPlayerHealth(playerid, &health);
 	GetPlayerArmour(playerid, &armor);
 
-	if (armor > 0.0)
+	if (health <= 0.0)
+		return;
+	else if (armor > 0.0)
 		SetPlayerArmour(playerid, armor - (float)damage);
 	else
 		SetPlayerHealth(playerid, health - (float)damage);
