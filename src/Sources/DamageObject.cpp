@@ -45,6 +45,7 @@ DamageObject::DamageObject(int modelid, Position spawn, Position end, float dama
 		speed = 10.0;
 		durability = 3;
 		duration = 10000;
+		damage = 12.0;
 	}
 	// 18647
 	objectid = Plugins::Streamer::Object::Create(modelid, spawn.x, spawn.y, spawn.z, rotX, rotY, rotZ, 0, 0, -1, 300.0, 0.0, -1, 0);
