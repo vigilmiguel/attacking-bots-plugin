@@ -11,6 +11,7 @@
 #include "AttackBot.h"
 #include "DamageObject.h"
 
+
 using namespace std;
 
 
@@ -81,159 +82,168 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerConnect(int playerid) {
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerRequestClass(int playerid,
                                                     int classid) {
+	/*
   SetPlayerPos(playerid, 1958.3783f, 1343.1572f, 15.3746f);
   SetPlayerCameraPos(playerid, 1958.3783f, 1343.1572f, 15.3746f);
   SetPlayerCameraLookAt(playerid, 1958.3783f, 1343.1572f, 15.3746f, CAMERA_CUT);
+  */
   return true;
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
                                                    const char *cmdtext) {
-  if (strcmp(cmdtext, "/hello") == 0) {
-    char name[MAX_PLAYER_NAME];
-    GetPlayerName(playerid, name, sizeof(name));
-    char message[MAX_CLIENT_MESSAGE];
-    //sprintf(message, "Hello, %s!", name);
-    SendClientMessage(playerid, 0x00FF00FF, message);
-    return true;
-  }
+	/*
+	if (strcmp(cmdtext, "/hello") == 0) {
+		char name[MAX_PLAYER_NAME];
+		GetPlayerName(playerid, name, sizeof(name));
+		char message[MAX_CLIENT_MESSAGE];
+		//sprintf(message, "Hello, %s!", name);
+		SendClientMessage(playerid, 0x00FF00FF, message);
+		return true;
+	}
+	*/
 
-  if (strncmp(cmdtext, "/createarea", 11) == 0)
-  {
-	  Area area;
+	if (IsPlayerAdmin(playerid))
+	{
 
-
-	  if (sscanf(cmdtext, "%*s %f %f %f %f %f %f", &area.xMin, &area.xMax, &area.yMin, &area.yMax, &area.zMin, &area.zMax) < 6)
-	  {
-		  SendClientMessage(playerid, 0xFF0000FF, "USAGE: /createarea [xMin xMax yMin yMax zMin zMax]");
-
-		  return true;
-	  }
+		if (strncmp(cmdtext, "/createarea", 11) == 0)
+		{
+			Area area;
 
 
+			if (sscanf(cmdtext, "%*s %f %f %f %f %f %f", &area.xMin, &area.xMax, &area.yMin, &area.yMax, &area.zMin, &area.zMax) < 6)
+			{
+				SendClientMessage(playerid, 0xFF0000FF, "USAGE: /createarea [xMin xMax yMin yMax zMin zMax]");
+
+				return true;
+			}
 
 
-	  //string message = "X: " + to_string(area.xMin) + "| Y: " + to_string(area.yMin) + "| Z: " + to_string(area.zMin);
-
-	  //SendClientMessage(playerid, -1, message.c_str());
-
-	  areas.push_back(area);
 
 
-	  return true;
-  }
+			//string message = "X: " + to_string(area.xMin) + "| Y: " + to_string(area.yMin) + "| Z: " + to_string(area.zMin);
 
-  if (strcmp(cmdtext, "/pos") == 0)
-  {
-	  float x, y, z;
+			//SendClientMessage(playerid, -1, message.c_str());
 
-	  GetPlayerPos(playerid, &x, &y, &z);
-
-	  string message = "X: " + to_string(x) + "| Y: " + to_string(y) + "| Z: " + to_string(z);
-
-	  SendClientMessage(playerid, -1, message.c_str());
+			areas.push_back(area);
 
 
-	  return true;
-  }
+			return true;
+		}
 
-  if (strcmp(cmdtext, "/create") == 0)
-  {
+		if (strcmp(cmdtext, "/pos") == 0)
+		{
+			float x, y, z;
 
+			GetPlayerPos(playerid, &x, &y, &z);
 
-	  /*
-	  area.xMin = float(4720.3354);
-	  area.xMax = float(4766.1201);
-	  area.yMin = float(134.1717);
-	  area.yMax = float(231.4489);
-	  area.zMin = float(11.2423);
-	  area.zMax = float(22.2423);
-	  */
+			string message = "X: " + to_string(x) + "| Y: " + to_string(y) + "| Z: " + to_string(z);
 
-	  bool isInArea = false;
-	  Area area;
-
-	  for (size_t i = 0; i < areas.size(); i++)
-	  {
-		  area = areas[i];
-
-		  if (playerInArea(playerid, area))
-		  {
-			  isInArea = true;
-			  break;
-		  }
-	  }
-
-	  if (!isInArea)
-	  {
-		  SendClientMessage(playerid, 0xFF0000FF, "ERROR: You aren't in a valid area!");
-		  return true;
-	  }
+			SendClientMessage(playerid, -1, message.c_str());
 
 
-	  AttackBot bot(18846, area);
+			return true;
+		}
 
-	  attackbots.push_back(bot);
-
-	  string botidList = "Bot List: ";
-	  for (size_t i = 0; i < attackbots.size(); i++)
-	  {
-		  botidList += to_string(attackbots[i].getBotID()) + "->hp:" + to_string(attackbots[i].getHealth()) + " | ";
-	  }
-	  SendClientMessage(playerid, 0x44AA77FF, botidList.c_str());
-
-	  return true;
-  }
-
-  if (strcmp(cmdtext, "/list") == 0)
-  {
-	  string botidList = "Bot List: ";
-	  for (size_t i = 0; i < attackbots.size(); i++)
-	  {
-		  botidList += to_string(attackbots[i].getBotID()) + "->hp:" + to_string(attackbots[i].getHealth()) + " | ";
-	  }
-	  SendClientMessage(playerid, 0x44AA77FF, botidList.c_str());
-  }
-
-  if (strcmp(cmdtext, "/fffast") == 0)
-  {
-	  for (size_t i = 0; i < attackbots.size(); i++)
-	  {
-		  attackbots[i].setSpeed(105);
-	  }
-	  return true;
-  }
-
-  if(strcmp(cmdtext, "/fast") == 0)
-  {
-	  for (size_t i = 0; i < attackbots.size(); i++)
-	  {
-		  attackbots[i].setSpeed(25);
-	  }
-	  return true;
-  }
+		if (strcmp(cmdtext, "/create") == 0)
+		{
 
 
-  if (strcmp(cmdtext, "/medium") == 0)
-  {
-	  for (size_t i = 0; i < attackbots.size(); i++)
-	  {
-		  attackbots[i].setSpeed(10);
-	  }
-	  return true;
-  }
+			/*
+			area.xMin = float(4720.3354);
+			area.xMax = float(4766.1201);
+			area.yMin = float(134.1717);
+			area.yMax = float(231.4489);
+			area.zMin = float(11.2423);
+			area.zMax = float(22.2423);
+			*/
+
+			bool isInArea = false;
+			Area area;
+
+			for (size_t i = 0; i < areas.size(); i++)
+			{
+				area = areas[i];
+
+				if (playerInArea(playerid, area))
+				{
+					isInArea = true;
+					break;
+				}
+			}
+
+			if (!isInArea)
+			{
+				SendClientMessage(playerid, 0xFF0000FF, "ERROR: You aren't in a valid area!");
+				return true;
+			}
 
 
-  if (strcmp(cmdtext, "/slow") == 0)
-  {
-	  for (size_t i = 0; i < attackbots.size(); i++)
-	  {
-		  attackbots[i].setSpeed(5);
-	  }
-	  return true;
-  }
+			AttackBot bot(18846, area);
 
-  return false;
+			attackbots.push_back(bot);
+
+			string botidList = "Bot List: ";
+			for (size_t i = 0; i < attackbots.size(); i++)
+			{
+				botidList += to_string(attackbots[i].getBotID()) + "->hp:" + to_string(attackbots[i].getHealth()) + " | ";
+			}
+			SendClientMessage(playerid, 0x44AA77FF, botidList.c_str());
+
+			return true;
+		}
+
+		if (strcmp(cmdtext, "/list") == 0)
+		{
+			string botidList = "Bot List: ";
+			for (size_t i = 0; i < attackbots.size(); i++)
+			{
+				botidList += to_string(attackbots[i].getBotID()) + "->hp:" + to_string(attackbots[i].getHealth()) + " | ";
+			}
+			SendClientMessage(playerid, 0x44AA77FF, botidList.c_str());
+		}
+
+		if (strcmp(cmdtext, "/fffast") == 0)
+		{
+			for (size_t i = 0; i < attackbots.size(); i++)
+			{
+				attackbots[i].setSpeed(105);
+			}
+			return true;
+		}
+
+		if (strcmp(cmdtext, "/fast") == 0)
+		{
+			for (size_t i = 0; i < attackbots.size(); i++)
+			{
+				attackbots[i].setSpeed(25);
+			}
+			return true;
+		}
+
+
+		if (strcmp(cmdtext, "/medium") == 0)
+		{
+			for (size_t i = 0; i < attackbots.size(); i++)
+			{
+				attackbots[i].setSpeed(10);
+			}
+			return true;
+		}
+
+
+		if (strcmp(cmdtext, "/slow") == 0)
+		{
+			for (size_t i = 0; i < attackbots.size(); i++)
+			{
+				attackbots[i].setSpeed(5);
+			}
+			return true;
+		}
+
+	}
+
+	return false;
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerDeath(int playerid, int killerid, int reason) {
