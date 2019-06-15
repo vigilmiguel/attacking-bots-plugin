@@ -311,7 +311,7 @@ void onBotMoved(int botid)
 
 static cell AMX_NATIVE_CALL OnSomethingHappens(AMX* amx, cell* params)
 {
-	logprintf("First Plugin!!!!!!!!!");
+	//logprintf("First Plugin!!!!!!!!!");
 	return 1;
 }
 
@@ -327,7 +327,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
 	pAMXFunctions = ppData[PLUGIN_DATA_AMX_EXPORTS];
 	logprintf = (logprintf_t)ppData[PLUGIN_DATA_LOGPRINTF];
 
-	logprintf(" * Test plugin was loaded.");
+	//logprintf(" * Test plugin was loaded.");
 	//return true;
 	
 	return sampgdk::Load(ppData);
@@ -335,7 +335,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL Load(void **ppData) {
 
 PLUGIN_EXPORT void PLUGIN_CALL Unload() {
 
-	logprintf(" * Test plugin was unloaded.");
+	//logprintf(" * Test plugin was unloaded.");
 
 	sampgdk::Unload();
 }
