@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <cstdio>
 #include <string.h>
 
 #include "sampgdk.h"
@@ -102,7 +103,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
 	  Area area;
 
 
-	  if (sscanf_s(cmdtext, "%*s %f %f %f %f %f %f", &area.xMin, &area.xMax, &area.yMin, &area.yMax, &area.zMin, &area.zMax) < 6)
+	  if (sscanf(cmdtext, "%*s %f %f %f %f %f %f", &area.xMin, &area.xMax, &area.yMin, &area.yMax, &area.zMin, &area.zMax) < 6)
 	  {
 		  SendClientMessage(playerid, 0xFF0000FF, "USAGE: /createarea [xMin xMax yMin yMax zMin zMax]");
 
