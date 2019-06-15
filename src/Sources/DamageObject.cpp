@@ -180,16 +180,21 @@ void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectL
 
 	if (health <= 0.0)
 	{
-		//SetPlayerHealth(playerid, 1.0);	
+		//SetPlayerHealth(playerid, 0.0);	
 		return;
 	}	
 	else if (armor > 0.0)
-		SetPlayerArmour(playerid, armor - (float)damage);
+		if(armor - (float)damage <= 0.0)
+			SetPlayerArmour(playerid, 0.0);
+		else
+			SetPlayerArmour(playerid, armor - (float)damage);
 	else
 	{
-		SetPlayerHealth(playerid, health - (float)damage);
-		if(health - (float)damage < 0.0)
-			SetPlayerHealth(playerid, 1.0);
+		
+		if(health - (float)damage <= 0.0)
+			SetPlayerHealth(playerid, 0.0);
+		else
+			SetPlayerHealth(playerid, health - (float)damage);
 	}
 
 	durability--;
