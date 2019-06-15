@@ -67,6 +67,7 @@ public:
 	int getBotID();
 	int getHealth();
 	void moveInArea();
+	bool isBotMoving();
 	void destroy(std::vector<AttackBot>& botList);
 	void damage(int playerid, float damage, std::vector<AttackBot>& botList);
 	Position randomPosInArea();
