@@ -65,7 +65,7 @@ float DamageObject::calculateXRotation(Position start, Position end)
 	float xDiff = end.x - start.x;
 	float yDiff = end.y - start.y;
 	float zDiff = end.z - start.z;
-	float distanceXY = sqrt(pow(xDiff, float(2.0)) + pow(yDiff, float(2.0)));
+	float distanceXY = sqrt(pow(xDiff, 2.0) + pow(yDiff, 2.0));
 
 	float degrees;
 
