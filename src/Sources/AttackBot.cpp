@@ -1,5 +1,6 @@
 #include "AttackBot.h"
 #include "DamageObject.h"
+#include "streamer.hpp"
 
 
 
@@ -24,7 +25,8 @@ AttackBot::AttackBot(int modelid, Area area)
 
 	Position randPos = randomPosInArea();
 	
-	this->botid = CreateObject(modelid, randPos.x, randPos.y, randPos.z - SPAWN_DEPTH, float(0.0), float(0.0), float(0.0), float(0.0));
+	//this->botid = CreateObject(modelid, randPos.x, randPos.y, randPos.z - SPAWN_DEPTH, float(0.0), float(0.0), float(0.0), float(0.0));
+	this->botid = Plugins::Streamer::Object::Create(modelid, randPos.x, randPos.y, randPos.z - SPAWN_DEPTH, float(0.0), float(0.0), float(0.0), 0, 0, -1, 300.0, 0.0, -1, 0);
 	//sampgdk::logprintf("Bot ID: %d has been created!", botid);
 }
 
@@ -49,7 +51,8 @@ void AttackBot::moveInArea()
 
 	isMoving = true;
 
-	MoveObject(botid, newpos.x, newpos.y, newpos.z, float(speed), float(0.0), float(0.0), float(0.0));
+	Plugins::Streamer::Object::Move(botid, newpos.x, newpos.y, newpos.z, float(speed), float(0.0), float(0.0), float(0.0));
+	//MoveObject(botid, newpos.x, newpos.y, newpos.z, float(speed), float(0.0), float(0.0), float(0.0));
 	//sampgdk::logprintf("Bot ID: %d started moving. to %f %f %f", botid, newpos.x, newpos.y, newpos.z);
 }
 
@@ -80,7 +83,13 @@ void AttackBot::destroy(std::vector<AttackBot>& botList)
 		projectiles[0].destroy(projectiles);
 	}
 
-	DestroyObject(botid);
+	Position pos = randomPosInArea();
+
+	pos.z = area.zMin - SPAWN_DEPTH;
+
+	// Instead of destorying the object, hide it.
+	Plugins::Streamer::Object::SetPos(botid, pos.x, pos.y, pos.z);
+	//DestroyObject(botid);
 	isDead = true;
 	isMoving = false;
 	deathTime = getCurrentTick();
@@ -141,7 +150,7 @@ void AttackBot::OnUpdate()
 			// Revive!!!
 			Position randPos = randomPosInArea();
 
-			this->botid = CreateObject(modelid, randPos.x, randPos.y, randPos.z - SPAWN_DEPTH, float(0.0), float(0.0), float(0.0), float(0.0));
+			//this->botid = CreateObject(modelid, randPos.x, randPos.y, randPos.z - SPAWN_DEPTH, float(0.0), float(0.0), float(0.0), float(0.0));
 			isDead = false;
 			health = MAX_HEALTH;
 		}
@@ -221,7 +230,8 @@ void AttackBot::attackTarget()
 	if (targetid == INVALID_PLAYER_ID)
 		return;
 
-	GetObjectPos(botid, &start.x, &start.y, &start.z);
+	Plugins::Streamer::Object::GetPos(botid, &start.x, &start.y, &start.z);
+	//GetObjectPos(botid, &start.x, &start.y, &start.z);
 
 	GetPlayerPos(targetid, &end.x, &end.y, &end.z);
 

@@ -76,7 +76,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnGameModeInit() {
 }
 
 PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerConnect(int playerid) {
-  SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to the HelloWorld server!");
+  //SendClientMessage(playerid, 0xFFFFFFFF, "Welcome to the HelloWorld server!");
   return true;
 }
 
@@ -117,6 +117,14 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
 
 				return true;
 			}
+			
+
+			if (area.xMin >= area.xMax || area.yMin >= area.yMax || area.zMin >= area.zMax)
+			{
+				SendClientMessage(playerid, 0xFF0000FF, "ERROR: Invalid area!");
+
+				return true;
+			}
 
 
 
@@ -127,6 +135,13 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
 
 			areas.push_back(area);
 
+			for (int i = 0; i < 3; i++)
+			{
+				AttackBot bot(18846, area);
+				attackbots.push_back(bot);
+			}
+
+			SendClientMessage(playerid, 0x10FF30FF, "SUCCESS: Area created along with 3 bots living in this area. Use /createbot while in the area to add more!");
 
 			return true;
 		}
@@ -137,7 +152,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
 
 			GetPlayerPos(playerid, &x, &y, &z);
 
-			string message = "X: " + to_string(x) + "| Y: " + to_string(y) + "| Z: " + to_string(z);
+			string message = "X: " + to_string(x) + " | Y: " + to_string(y) + " | Z: " + to_string(z);
 
 			SendClientMessage(playerid, -1, message.c_str());
 
@@ -145,7 +160,7 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
 			return true;
 		}
 
-		if (strcmp(cmdtext, "/create") == 0)
+		if (strcmp(cmdtext, "/createbot") == 0)
 		{
 
 
@@ -183,12 +198,18 @@ PLUGIN_EXPORT bool PLUGIN_CALL OnPlayerCommandText(int playerid,
 
 			attackbots.push_back(bot);
 
+			/*
 			string botidList = "Bot List: ";
 			for (size_t i = 0; i < attackbots.size(); i++)
 			{
 				botidList += to_string(attackbots[i].getBotID()) + "->hp:" + to_string(attackbots[i].getHealth()) + " | ";
 			}
 			SendClientMessage(playerid, 0x44AA77FF, botidList.c_str());
+			*/
+
+			string message = "Bot created! Bot ID: " + to_string(bot.getBotID());
+
+			SendClientMessage(playerid, 0x44AA77FF, message.c_str());
 
 			return true;
 		}

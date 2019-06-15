@@ -65,7 +65,7 @@ float DamageObject::calculateXRotation(Position start, Position end)
 	float xDiff = end.x - start.x;
 	float yDiff = end.y - start.y;
 	float zDiff = end.z - start.z;
-	float distanceXY = sqrt(pow(xDiff, 2.0) + pow(yDiff, 2.0));
+	float distanceXY = sqrt(pow(xDiff, float(2.0)) + pow(yDiff, float(2.0)));
 
 	float degrees;
 
@@ -172,10 +172,15 @@ void DamageObject::damagePlayer(int playerid, std::vector<DamageObject>& objectL
 	
 	//callWC_DamagePlayer(playerid, (float)damage, INVALID_PLAYER_ID, 21, 0);
 	float health;
+	float armor;
 
 	GetPlayerHealth(playerid, &health);
+	GetPlayerArmour(playerid, &armor);
 
-	SetPlayerHealth(playerid, health - (float)damage);
+	if (armor > 0.0)
+		SetPlayerArmour(playerid, armor - (float)damage);
+	else
+		SetPlayerHealth(playerid, health - (float)damage);
 
 	durability--;
 
